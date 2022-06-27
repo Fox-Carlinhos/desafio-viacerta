@@ -82,4 +82,8 @@ export const LastRow = styled.div`
   justify-content: flex-end;
 
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;

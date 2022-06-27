@@ -8,6 +8,7 @@ export function Router() {
       <Routes>
         <Route path="/" element={<Consultation />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/edit/:id" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

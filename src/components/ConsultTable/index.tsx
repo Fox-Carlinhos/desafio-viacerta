@@ -3,9 +3,15 @@ import { Container } from "./styles";
 import { ConsultsContext } from "../../ConsultsContext";
 import { HiOutlineTrash } from "react-icons/hi";
 import { TiEdit } from "react-icons/ti";
+import { Link, useParams } from "react-router-dom";
 
 export function ConsultTable() {
-  const { consults, handleDeleteConsult } = useContext(ConsultsContext);
+  const { consults, deleteConsult } = useContext(ConsultsContext);
+
+  async function handleDeleteConsult(id: number | string) {
+    deleteConsult(id);
+  }
+
   return (
     <Container>
       <table>
@@ -22,9 +28,9 @@ export function ConsultTable() {
           {consults.map((consult) => (
             <tr key={consult.id}>
               <td>
-                <button>
+                <Link to={`/edit/${consult.id}`}>
                   <TiEdit size={15} />
-                </button>
+                </Link>
                 <button>
                   <HiOutlineTrash
                     onClick={() => handleDeleteConsult(consult.id)}

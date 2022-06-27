@@ -1,4 +1,5 @@
 import { Button } from "../../components/Button";
+import { ButtonLink } from "../../components/ButtonLink";
 import { ConsultTable } from "../../components/ConsultTable";
 import { Input } from "../../components/Input";
 import { Logo } from "../../components/Logo";
@@ -25,12 +26,18 @@ export function Consultation() {
             <Input label="CPF" width={45} name="cpf" hasmask />
           </Row>
           <LastRow>
-            <Button minWidth="80px" backgroundColor="var(--success-button)">
+            <Button minWidth="84px" backgroundColor="var(--success-button)">
               Filtrar
             </Button>
           </LastRow>
         </Container>
-        <Button backgroundColor="var(--success-button)">Novo Lead</Button>
+        <ButtonLink
+          minWidth="84px"
+          backgroundColor="var(--success-button)"
+          to="/register"
+        >
+          Novo Lead
+        </ButtonLink>
         <ConsultTable />
       </Wrapper>
     </Background>
