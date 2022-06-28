@@ -1,20 +1,12 @@
 {
   "consults": [
     {
-      "name": "João Siqueira",
-      "cpf": "999.999.999-99",
-      "email": "joaosiqueira@gmail.com",
-      "civilState": "single",
-      "spouseName": "",
-      "id": 1
-    },
-    {
       "name": "Carlos Alberto Jr",
       "cpf": "999.999.999-99",
       "email": "carlosalberto.cfjr@gmail.com",
       "civilState": "single",
       "spouseName": "",
-      "id": 2
+      "id": 1
     }
   ]
 }

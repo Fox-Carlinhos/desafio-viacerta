@@ -1,13 +1,14 @@
 import { Formik } from "formik";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLocation, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { ButtonLink } from "../../components/ButtonLink";
 import { CivilStateSelect } from "../../components/CivilStateSelect";
 import { Input } from "../../components/Input";
 import { Logo } from "../../components/Logo";
-import { ConsultRegister, ConsultsContext } from "../../ConsultsContext";
-import { api } from "../../services/api";
+import { ConsultRegister } from "../../models/ConsultDTO";
+import { api, createConsult, editConsult } from "../../services/api";
 import { RegisterFormSchema } from "./RegisterValidation";
 import {
   Background,
@@ -21,11 +22,11 @@ import {
 } from "./styles";
 
 export function Register() {
-  const { createConsult, editConsult } = useContext(ConsultsContext);
   const [consult, setConsult] = useState<ConsultRegister>();
 
   const params = useParams();
   const location = useLocation();
+  let history = useNavigate();
 
   useEffect(() => {
     if (params && params.id) {
@@ -44,10 +45,11 @@ export function Register() {
   }, [params]);
 
   async function handleRegisterConsult(values: ConsultRegister) {
-    createConsult(values);
+    createConsult(values).then(() => history("/"));
   }
   async function handleEditConsult(values: ConsultRegister) {
     if (params && params.id) editConsult(params.id, values);
+    history("/");
   }
 
   return (
